@@ -25,7 +25,10 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-app = FastAPI(title="Auth Service")
+app = FastAPI(
+    title="Auth Service",
+    root_path="/auth"
+)
 
 app.add_middleware(
     CORSMiddleware,
